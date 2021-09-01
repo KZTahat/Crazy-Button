@@ -37,13 +37,6 @@ io.on("connection", (socket) => {
     queueServer.emit('overWrite')
     // data.score++;
 
-
-    // io.on('newScore', (score) => {
-    //   console.log(score.score, 'newwwwwwwwwwww')
-    // })
-
-    // console.log('score in crazy ', data.score)
-
     queueServer.emit('updateScore', data.playerID)
     io.emit('crazyClicked', data);
     console.log(data, 'data in crazy')
