@@ -9,4 +9,5 @@ const queue = {
 
 playerNamespace.on('addPlayer', (playerID) => {
     // queue.players[playerID]
+    // :)
 })
