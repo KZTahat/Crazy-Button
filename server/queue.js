@@ -14,6 +14,7 @@ playerNamespace.on('addPlayer', (playerID) => {
 
     console.log('score', queue.players[playerID].score);
     console.log(playerID, 'llllll');
+    playerNamespace.emit('newScore',queue);
 })
 
 playerNamespace.on('updateScore', playerID => {
@@ -24,10 +25,11 @@ playerNamespace.on('updateScore', playerID => {
     
     console.log(queue);
 
-    playerNamespace.emit('newScore',queue)
-        
- 
-
-
-
+    
+    
 })
+
+playerNamespace.on('overWrite',()=>{
+    console.log('overWrite on queue')
+    playerNamespace.emit('over2',queue)
+});
