@@ -1,7 +1,9 @@
-"use strict";
-
 const ioClient = require("socket.io-client");
-const playerNamespace = ioClient.connect(`http://localhost:3004/player`);
+
+// for local use
+// const playerNamespace = ioClient.connect(`http://localhost:3004/player`);
+// for deployed version
+const playerNamespace = ioClient.connect(`https://crazy-button.herokuapp.com/player`);
 
 const queue = {
     players: {}
@@ -32,4 +34,6 @@ playerNamespace.on('updateScore', playerID => {
 playerNamespace.on('overWrite',()=>{
     console.log('overWrite on queue')
     playerNamespace.emit('over2',queue)
+
 });
+
