@@ -34,13 +34,8 @@ io.on("connection", (socket) => {
   });
 
   socket.on("crazyClicked", (data) => {
+    queueServer.emit('overWrite')
     // data.score++;
-
-
-    io.on('newScore', (score) => {
-      console.log(score.score, 'newwwwwwwwwwww')
-    })
-    // console.log('score in crazy ', data.score)   
 
     queueServer.emit('updateScore', data.playerID)
     io.emit('crazyClicked', data);
@@ -54,13 +49,21 @@ io.on("connection", (socket) => {
 });
 
 queueServer.on('connection', socket => {
+  
   console.log('queue is connected');
   let bigScore;
-
+  
   socket.on('newScore', score => {
     console.log(score, 'score from q')
     bigScore = score;
     io.emit('newScore',bigScore)
+  })
+  socket.on('over2',(queue)=>{
+    console.log('overWrite on server')
+
+
+    io.emit('over',queue);
+
   })
   // socket.emit('addPlayer',payload)
 
