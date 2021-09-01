@@ -7,6 +7,7 @@ let crazyButton = document.getElementById("crazyButton");
 
 //setting variables 
 let score;
+  
 const playerID = Math.random().toString(36).slice(2);
 
 //
@@ -25,7 +26,7 @@ startButton.addEventListener("click", () => {
 
 socket.on("startGame", hideStartBtn);
 function hideStartBtn() {
-  score = 0;
+  
   let messageContainer = document.getElementById("messageContainer");
   let span = document.createElement("span");
   messageContainer.appendChild(span);
@@ -37,16 +38,35 @@ function hideStartBtn() {
 }
 
 crazyButton.addEventListener("click", () => {
-  score++;
+  // score++;
+  // console.log(bigScore,'newwww ssssss')
+
   let messageSpan = document.getElementById(`${playerID}`);
-  messageSpan.textContent = `My Score: ${score}`;
-  
+
+  let bigScore1;
+  socket.on('newScore',bigScore=>{
+    Object.keys(bigScore.players).forEach(playerID=>{
+      let span = document.createElement("span");
+      messageSpan.appendChild(span);
+
+      span.textContent = `My Score: ${bigScore.players[playerID].score}  `;
+    })
+    bigScore1=bigScore
+    console.log(bigScore1,'this is bigScore1')
+
+    
+  })
+
+
+
+
   socket.emit("crazyClicked", {
+    score:bigScore1,
     offsetLeft:
       Math.random() * (window.innerWidth - crazyButton.clientWidth - 100),
     offsetTop:
       Math.random() * (window.innerHeight - crazyButton.clientHeight - 50),
-    score: score,
+      //score
     playerID: playerID,
   });
 });
@@ -67,6 +87,11 @@ function goCrazy(setLeft, setTop) {
 }
 
 function updateScore(score, playerID) {
-  let scoreSpan = document.getElementById(`${playerID}`);
-  scoreSpan.textContent = `  other score: ${score}`;
+  let scoreSpan = document.getElementById('score');
+  console.log(score)
+  // let score2=
+  //${playerID}
+
+
+  // scoreSpan.textContent = `  second player: ${score} `;
 }
