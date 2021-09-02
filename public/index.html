@@ -19,12 +19,14 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<section>
+<section id="gameOver">
+    <div id="myscore">
+    </div>
     <button type="button" id="crazyButton" class="btn-crazy btn btn-lg btn-danger">
     </button>
     <button type="button" id="startButton" class="btn-start btn btn-lg">Start
     </button>
-    <a href="#" class="nes-btn is-warning home-btn">Home</a>
+    <!-- <a href="#" class="nes-btn is-warning home-btn">Home</a> -->
 
     <!-- <div class="starting-section">
         <div class="text-left" style="border-bottom: 2px solid black; border-right: 2px solid black;">
@@ -38,8 +40,15 @@
         </div>
     </div> -->
 </section>
-<div id='messageContainer'>
-    <!-- <span id="score">total score</span> -->
+<div id='messageContainer' class="gameOver">
+    <!-- <span id="score">mmmmm score</span> -->
+    <span id="score2">Get Ready You Have 1 Minute</span>
+    <ul id="playeName"></ul>
+    <ul id="ul">
+        
+    </ul>
+
+
 </div>
 
     <!-- Socket.IO Javacript -->

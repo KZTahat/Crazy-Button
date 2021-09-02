@@ -102,7 +102,7 @@ body, .jumbotron {
 .home-btn {
     position: fixed;
     right: 20px;
-    bottom: 20px;
+    /* bottom: 20px; */
 }
 
-#messageContainer {bottom: 0px; left: 300px;margin-top: 500px;}
+#messageContainer { left: 300px;}
