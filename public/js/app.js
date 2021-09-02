@@ -47,7 +47,7 @@ function hideStartBtn() {
 
 
 
-  }, 10000);
+  }, 25000);
 
   let messageContainer = document.getElementById("messageContainer");
   let span = document.createElement("span");
